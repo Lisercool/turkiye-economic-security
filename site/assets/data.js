@@ -4,7 +4,7 @@ export const PROFILE = Object.freeze({
   name:'Лошак Ю. О.', initials:'ЛЮ',
   education:'Бакалавр з кібербезпеки та захисту інформації',
   interests:['Аналіз кіберризиків','Захист інформаційних систем','Цифрова стійкість економіки','Безпека даних'],
-  phone:'+380 (00) 000-00-00', year:2026
+  phone:'+380 68 318 87 91', year:2026
 });
 export const LEVELS = Object.freeze([
   {key:'optimal', label:'Оптимальний', color:'#256449'},

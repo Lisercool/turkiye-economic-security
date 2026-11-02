@@ -39,10 +39,10 @@ export function trend(series,row=series.data.at(-1)){
 export function pill(level){return level?`<span class="status ${level.key}"><span aria-hidden="true"></span>${level.label}</span>`:'<span class="missing">Немає даних</span>';}
 export function summaryRows(year='latest',filter='all'){
   const entries=snapshot(year).filter(({level})=>filter==='all'||(level&&(filter==='attention'?LEVELS.indexOf(level)>=2:LEVELS.indexOf(level)<=1)));
-  if(!entries.length)return '<tr><td colspan="6" class="empty-state">Для цього року та фільтра даних немає. Оберіть інший рік або всі оцінки.</td></tr>';
+  if(!entries.length)return '<tr><td colspan="5" class="empty-state">Для цього року та фільтра даних немає.</td></tr>';
   return entries.map(({series,row,level})=>{
-    const group=GROUPS.find(g=>g.id===series.group),change=trend(series,row);
-    return `<tr><th scope="row"><a href="#detail-${group.id}" data-explore="${group.id}">${escapeHTML(series.title)} <span aria-hidden="true">↗</span></a><small>${group.category}</small></th><td>${row?.year??'—'}</td><td class="number">${row?fmt(row.value,series.digits):'—'}<small>${series.unit}</small></td><td>${pill(level)}</td><td><span class="optimal-target">${group.optimal}</span></td><td>${change?`<span class="trend ${change.unchanged?'neutral':change.improved?'good':'bad'}">${change.change>0?'+':''}${fmt(change.change,series.digits)} ${series.changeUnit}</span><small>${change.firstYear} → ${change.lastYear}</small>`:'<span class="missing">—</span>'}</td></tr>`;
+    const group=GROUPS.find(g=>g.id===series.group);
+    return `<tr><th scope="row"><a href="#detail-${group.id}" data-explore="${group.id}">${escapeHTML(series.title)}</a><small class="mobile-year">${row?.year??'—'}</small></th><td>${row?.year??'—'}</td><td class="number">${row?fmt(row.value,series.digits):'—'}<small>${series.unit}</small></td><td>${pill(level)}<small class="mobile-optimal">Оптимум: ${group.optimal}</small></td><td><span class="optimal-target">${group.optimal}</span></td></tr>`;
   }).join('');
 }
 export function detailTable(group){
