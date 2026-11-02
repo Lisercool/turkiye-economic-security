@@ -23,29 +23,6 @@
 
 Дата вивантаження та нормативне першоджерело порогів у наданій роботі не вказані. Шкали не подаються як офіційні стандарти Туреччини або Світового банку.
 
-## Як працює публікація
-
-Workflow: [Deploy to GitHub Pages](https://github.com/Lisercool/turkiye-economic-security/actions/workflows/pages.yml), файл [pages.yml](.github/workflows/pages.yml).
-
-Після кожного `push` у `main` автоматично виконуються:
-
-1. Збірка HTML і CSV на Node.js 24.
-2. Перевірка даних, порогів, експорту й сторінок — 8 тестів.
-3. Публікація вмісту `site/` у GitHub Pages після успішних перевірок.
-
-README, документація, тести, генератор та локальний сервер не входять до файлів сайту. Їхній код доступний у публічному репозиторії.
-
-### Повторний деплой вручну
-
-1. Відкрити вкладку **Actions** у репозиторії.
-2. Вибрати **Deploy to GitHub Pages**.
-3. Натиснути **Run workflow**, обрати `main` і підтвердити запуск.
-4. Дочекатися успішного завершення `build` та `deploy`, після чого відкрити сайт.
-
-У **Settings → Pages → Build and deployment → Source** має бути вибрано **GitHub Actions**. Для цього проєкту не потрібно обирати публікацію з `/docs` чи кореня гілки: файли сайту передає підготовлений workflow.
-
-Документація: [GitHub Pages із власним workflow](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
-
 ## Локальний запуск та зміни
 
 Потрібен Node.js 22–24. Сторонніх залежностей немає.
