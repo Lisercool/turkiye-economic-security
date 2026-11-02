@@ -1,0 +1,9 @@
+{
+  "name": "turkiye-economic-security",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Економічна безпека Туреччини: навчальне дослідження",
+  "scripts": {"start": "node server.mjs", "build": "node scripts/build.mjs", "test": "node --test tests/*.test.mjs"},
+  "engines": {"node": ">=22 <25"}
+}
