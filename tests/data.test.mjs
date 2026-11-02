@@ -89,7 +89,7 @@ test('Export has 45 complete observations, a BOM, source fields and classificati
   assert.equal(await readFile(new URL('../site/assets/turkiye-data.csv',import.meta.url),'utf8'),result);
 });
 
-test('Generated pages expose static data, have relative links and no publication workflow',async()=>{
+test('Generated pages expose static data, relative links and no tracking',async()=>{
   for(const page of ['index.html','analytics.html','methodology.html']){
     const html=await readFile(new URL('../site/'+page,import.meta.url),'utf8');
     assert.match(html,/<html lang="uk">/);assert.match(html,/© 2026/);assert.ok(html.includes(PROFILE.name));
